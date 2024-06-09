@@ -60,7 +60,7 @@ def main():
     serial_port = serial.Serial(serial_port_path, 9600)
     data = {'x': [], 'y': [], 'z': [], 'total': [], 'time': []}
 
-    fig = plt.figure(figsize=(14, 6))
+    fig = plt.figure(figsize=(14, 4))
 
     # Left subplot: Line plots for x, y, z, and total acceleration over time
     global ax1
@@ -88,7 +88,7 @@ def main():
     ax2.legend(['Low (<1.25)', 'Medium (1.25-6)', 'High (>6)'])
 
     # Create animation
-    ani = animation.FuncAnimation(fig, update_plots, fargs=(serial_port, data, lines, scatter), interval=250, blit=False)
+    ani = animation.FuncAnimation(fig, update_plots, fargs=(serial_port, data, lines, scatter), interval=200, blit=False)
     plt.show()
 
 if __name__ == "__main__":
